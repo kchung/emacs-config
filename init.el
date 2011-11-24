@@ -5,20 +5,24 @@
 ;; =============
 
 ;; nginx-mode
+;; https://github.com/ajc/nginx-mode
 (add-to-list 'load-path "~/.emacs.d/nginx-mode")
 (autoload 'nginx-mode "nginx-mode" "Mode fo nginx" t)
 
 ;; Espresso mode
+;; http://www.nongnu.org/espresso/
 (add-to-list 'load-path "~/.emacs.d/espresso-mode")
 (add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
 (autoload 'espresso-mode "espresso" "Espresso" t)
 
 ;; PHP mode
+;; http://php-mode.sourceforge.net/  
 (add-to-list 'load-path "~/.emacs.d/php-mode/")
 (add-to-list 'auto-mode-alist '("\\.php\\'"   . php-mode))
 (autoload 'php-mode "php-mode" "Mode for editing sass files" t)
 
 ;; SCSS mode
+;; https://github.com/antonj/scss-mode
 (add-to-list 'load-path "~/.emacs.d/scss-mode/")
 (add-to-list 'auto-mode-alist '("\\.scss\\'"   . scss-mode))
 (autoload 'scss-mode "scss-mode" "Mode for editing sass files" t)
