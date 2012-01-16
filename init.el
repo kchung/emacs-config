@@ -1,6 +1,11 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
+;; Magit 
+;; http://philjackson.github.com/magit/
+(global-set-key (kbd "C-x g") 'magit-status)
+
+
 ;; Editing Modes
 ;; =============
 
