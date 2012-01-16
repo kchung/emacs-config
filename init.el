@@ -3,6 +3,7 @@
 
 ;; Magit 
 ;; http://philjackson.github.com/magit/
+(require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
 
