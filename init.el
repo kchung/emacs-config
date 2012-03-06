@@ -1,6 +1,9 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
+;; Saving Emacs Sessions
+(desktop-save-mode 1)
+
 ;; Magit 
 ;; http://philjackson.github.com/magit/
 (require 'magit)
