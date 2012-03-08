@@ -4,6 +4,10 @@
 ;; Saving Emacs Sessions
 (desktop-save-mode 1)
 
+;; Shell Mode Ansi Colors
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 ;; Magit 
 ;; http://philjackson.github.com/magit/
 (require 'magit)
