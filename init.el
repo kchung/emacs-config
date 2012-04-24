@@ -17,6 +17,10 @@
 ;; Editing Modes
 ;; =============
 
+;; Haml Mode
+(add-to-list 'load-path "~/.emacs.d/haml-mode")
+(autoload 'haml-mode "haml-mode" "Mode for haml" t)
+
 ;; nginx-mode
 ;; https://github.com/ajc/nginx-mode
 (add-to-list 'load-path "~/.emacs.d/nginx-mode")
