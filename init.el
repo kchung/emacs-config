@@ -10,6 +10,7 @@
 
 ;; InteractivelyDoThings (ido)
 (require 'ido)   
+(ido-mode 1)
 
 ;; Magit 
 ;; http://philjackson.github.com/magit/
