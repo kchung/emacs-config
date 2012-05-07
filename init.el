@@ -17,6 +17,14 @@
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; Change Magit diff colors (good for black backround terminals)
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-add "green3")
+     (set-face-foreground 'magit-diff-del "red3")
+     (when (not window-system)
+       (set-face-background 'magit-item-highlight "gray2"))))
+
 
 ;; Editing Modes
 ;; =============
