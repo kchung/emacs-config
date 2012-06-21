@@ -1,8 +1,14 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
+;; Enable to edit through SSH
+(setq tramp-default-method "ssh")
+
 ;; Saving Emacs Sessions
 (desktop-save-mode 1)
+
+;; Allow desktop mode to save Tramp connections
+(setq desktop-files-not-to-save "^$")
 
 ;; Shell Mode Ansi Colors
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
