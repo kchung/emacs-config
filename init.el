@@ -29,7 +29,7 @@
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")
      (when (not window-system)
-       (set-face-background 'magit-item-highlight "gray2"))))
+       (set-face-background 'magit-item-highlight "gray8"))))
 
 
 ;; Editing Modes
