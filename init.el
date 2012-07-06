@@ -1,8 +1,17 @@
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
+;;(setq-default tab-width 4)
+
+(setq-default c-basic-offset 4
+              tab-width 4
+              indent-tabs-mode t)
 
 ;; Enable to edit through SSH
 (setq tramp-default-method "ssh")
+
+;; Stop TRAMP from autosaving
+(require 'tramp)
+(add-to-list 'backup-directory-alist
+			 (cons tramp-file-name-regexp nil))
 
 ;; Saving Emacs Sessions
 (desktop-save-mode 1)
