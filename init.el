@@ -27,8 +27,39 @@
 (require 'ido)   
 (ido-mode 1)
 
+;;
+;; Ibuffer Mode
+;; ============
+;;
+
+;; Defaulty use Ibuffer Mode
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Use human readable Size column instead of original one
+(define-ibuffer-column size-h
+  (:name "Size" :inline t)
+  (cond
+   ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
+   ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
+   (t (format "%8d" (buffer-size)))))
+
+;; Modify the default ibuffer-formats
+(setq ibuffer-formats
+	  '((mark modified read-only " "
+			  (name 18 18 :left :elide)
+			  " "
+			  (size-h 9 -1 :right)
+			  " "
+			  (mode 16 16 :left :elide)
+			  " "
+			  filename-and-process)))
+
+;;
 ;; Magit 
+;; ===========
 ;; http://philjackson.github.com/magit/
+;;
+
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
