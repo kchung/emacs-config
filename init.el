@@ -5,19 +5,8 @@
               tab-width 4
               indent-tabs-mode t)
 
-;; Enable to edit through SSH
-(setq tramp-default-method "ssh")
-
-;; Stop TRAMP from autosaving
-(require 'tramp)
-(add-to-list 'backup-directory-alist
-			 (cons tramp-file-name-regexp nil))
-
-;; Saving Emacs Sessions
+;; Desktop Mode
 (desktop-save-mode 1)
-
-;; Allow desktop mode to save Tramp connections
-(setq desktop-files-not-to-save "^$")
 
 ;; Shell Mode Ansi Colors
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
@@ -72,8 +61,29 @@
        (set-face-background 'magit-item-highlight "gray8"))))
 
 
+
+;;
+;; TRAMP Mode
+;; =============
+;;
+
+;; Enable to edit through SSH
+(setq tramp-default-method "ssh")
+
+;; Stop TRAMP from autosaving
+;; prevents hangs when on a bad VPN connection
+(require 'tramp)
+(add-to-list 'backup-directory-alist
+			 (cons tramp-file-name-regexp nil))
+
+;; Allow desktop mode to save TRAMP connections
+(setq desktop-files-not-to-save "^$")
+
+
+;;
 ;; Editing Modes
 ;; =============
+;;
 
 ;; Haml Mode
 (add-to-list 'load-path "~/.emacs.d/haml-mode")
@@ -104,8 +114,10 @@
 (autoload 'scss-mode "scss-mode" "Mode for editing sass files" t)
 
 
+;;
 ;; Auto-save
 ;; =========
+;;
 
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
 (custom-set-variables
