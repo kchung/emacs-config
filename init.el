@@ -22,6 +22,7 @@
 ;;
 
 ;; Defaulty use Ibuffer Mode
+(require 'ibuffer)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Use human readable Size column instead of original one
