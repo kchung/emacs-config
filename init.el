@@ -17,6 +17,17 @@
 (ido-mode 1)
 
 ;;
+;; Expand Region
+;; =============
+;; https://github.com/magnars/expand-region.el
+;;
+
+(add-to-list 'load-path "~/.emacs.d/expand-region/")
+(require 'expand-region)
+(global-set-key (kbd "C-\\") 'er/expand-region)
+(global-set-key (kbd "M-\\") 'er/contract-region)
+
+;;
 ;; Ibuffer Mode
 ;; ============
 ;;
