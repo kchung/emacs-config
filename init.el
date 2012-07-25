@@ -5,6 +5,9 @@
               tab-width 4
               indent-tabs-mode t)
 
+;; Enable Column Number
+(setq column-number-mode t)
+
 ;; Desktop Mode
 (desktop-save-mode 1)
 
