@@ -64,6 +64,7 @@
 ;; http://philjackson.github.com/magit/
 ;;
 
+(add-to-list 'load-path "~/.emacs.d/magit")
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
@@ -160,3 +161,15 @@
  ;; If there is more than one, they won't work right.
  '(magit-item-highlight ((t (:background "color-234"))))
  '(match ((t (:background "yellow")))))
+
+;; Highligh which pane is active
+(set-face-attribute  'mode-line
+                 nil 
+                 :foreground "black"
+                 :background "snow" 
+                 :box '(:line-width 1 :style released-button))
+(set-face-attribute  'mode-line-inactive
+                 nil 
+                 :foreground "gray30"
+                 :background "gray25"
+                 :box '(:line-width 1 :style released-button))
