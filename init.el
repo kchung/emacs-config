@@ -1,9 +1,17 @@
+;;(setq-default indent-tabs-mode t)
+;;(setq tab-width 4)
+
 (setq-default indent-tabs-mode nil)
 ;;(setq-default tab-width 4)
+
+(setq-default menu-bar-mode nil)
 
 (setq-default c-basic-offset 4
               tab-width 4
               indent-tabs-mode t)
+
+;; Go away menu bar
+(menu-bar-mode -1)
 
 ;; Enable Column Number
 (setq column-number-mode t)
@@ -14,6 +22,16 @@
 ;; Shell Mode Ansi Colors
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+(add-hook 'html-mode-hook
+          (lambda()
+            (setq sgml-basic-offset 4)
+            (setq indent-tabs-mode t)))
+
+(add-hook 'mustache-mode-hook
+          (lambda()
+            (setq sgml-basic-offset 4)
+            (setq indent-tabs-mode t)))
 
 ;; InteractivelyDoThings (ido)
 (require 'ido)   
@@ -29,6 +47,14 @@
 (require 'expand-region)
 (global-set-key (kbd "C-\\") 'er/expand-region)
 (global-set-key (kbd "M-\\") 'er/contract-region)
+
+;;
+;; Mustache Mode
+;; =============
+;;
+
+(add-to-list 'load-path "~/.emacs.d/mustache-mode")
+(require 'mustache-mode)
 
 ;;
 ;; Ibuffer Mode
@@ -101,6 +127,8 @@
 ;; =============
 ;;
 
+(add-to-list 'auto-mode-alist '("\\.tpl\\'"   . html-mode))
+
 ;; Haml Mode
 (add-to-list 'load-path "~/.emacs.d/haml-mode")
 (add-to-list 'auto-mode-alist '("\\.haml\\'"   . haml-mode))
@@ -122,6 +150,17 @@
 (add-to-list 'load-path "~/.emacs.d/php-mode/")
 (add-to-list 'auto-mode-alist '("\\.php\\'"   . php-mode))
 (autoload 'php-mode "php-mode" "Mode for editing sass files" t)
+(add-hook 'php-mode-hook (lambda ()
+    (defun ywb-php-lineup-arglist-intro (langelem)
+      (save-excursion
+        (goto-char (cdr langelem))
+        (vector (+ (current-column) c-basic-offset))))
+    (defun ywb-php-lineup-arglist-close (langelem)
+      (save-excursion
+        (goto-char (cdr langelem))
+        (vector (current-column))))
+    (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
+    (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)))
 
 ;; SCSS mode
 ;; https://github.com/antonj/scss-mode
